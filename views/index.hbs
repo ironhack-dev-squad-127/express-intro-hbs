@@ -1,12 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>My first view</title>
-  <link rel="stylesheet" href="stylesheets/style.css">
-</head>
-<body>
-  <h1>Hello {{name}}!</h1>
-  <p>Welcome to the {{bootcamp}}!!</p>
-</body>
-</html>
+{{#if isItMorning}}
+  <h1>Good morning {{name}}!</h1>
+{{else}}
+  <h1>Good afternoon {{name}}!</h1>
+{{/if}}
+<p>Welcome to the {{{bootcamp}}}!!</p>
+
+<p>Our cities</p>
+<ul>
+  {{#each cities}}
+    {{!-- {{this}} is the current element --}}
+    {{!-- {{@index}} is the index of the current element --}}
+    <li>{{@index}} {{this}} ({{@first}}, {{@last}})</li>
+  {{else}}
+    <li>Sorry, there are no cities</li>
+  {{/each}}
+</ul>
+
+<hr>
+
+The 3rd city is: {{cities.[2]}}
